@@ -5,7 +5,12 @@ import { useNavigate } from "react-router-dom";
 import "./SignupPage.css";
 
 const SignupPage = () => {
-  const [formData, setFormData] = useState({ username: "", password: "" });
+  const [formData, setFormData] = useState({
+    username: "",
+    password: "",
+    role: "user", // Default role
+  });
+
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -27,8 +32,25 @@ const SignupPage = () => {
     <div className="signup-container">
       <h2>Signup</h2>
       <form onSubmit={handleSubmit}>
-        <input name="username" placeholder="Username" value={formData.username} onChange={handleChange} required />
-        <input name="password" type="password" placeholder="Password" value={formData.password} onChange={handleChange} required />
+        <input
+          name="username"
+          placeholder="Username"
+          value={formData.username}
+          onChange={handleChange}
+          required
+        />
+        <input
+          name="password"
+          type="password"
+          placeholder="Password"
+          value={formData.password}
+          onChange={handleChange}
+          required
+        />
+        <select name="role" value={formData.role} onChange={handleChange} required>
+          <option value="user">User</option>
+          <option value="admin">Admin</option>
+        </select>
         <button type="submit">Signup</button>
       </form>
     </div>
