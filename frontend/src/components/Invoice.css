@@ -1,0 +1,49 @@
+.invoice-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.invoice-content {
+    margin-top: 2rem;
+}
+
+.invoice-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+}
+
+.invoice-content th,
+.invoice-content td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.invoice-content th {
+    background-color: #f8f9fa;
+}
+
+button {
+    background: #4a90e2;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 1.5rem;
+}
+
+@media print {
+    .invoice-container {
+        box-shadow: none;
+        padding: 0;
+    }
+    
+    button {
+        display: none;
+    }
+}

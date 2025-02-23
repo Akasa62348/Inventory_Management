@@ -1,0 +1,64 @@
+.sales-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+.search-input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+.sales-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+}
+
+.sales-table th,
+.sales-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.pagination button {
+    padding: 8px 16px;
+    border: 1px solid #ddd;
+    background: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.pagination button:disabled {
+    background: #f8f9fa;
+    cursor: not-allowed;
+}
+
+.total-amount {
+    text-align: right;
+    margin: 1.5rem 0;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+    .sales-container {
+        padding: 0 1rem;
+    }
+    
+    .sales-table {
+        display: block;
+        overflow-x: auto;
+    }
+}
