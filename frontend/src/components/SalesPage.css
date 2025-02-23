@@ -1,64 +1,82 @@
 .sales-container {
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 0 2rem;
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.search-input {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 1.5rem;
-    border: 1px solid #ddd;
-    border-radius: 6px;
+h2 {
+  text-align: center;
+  color: #2c3e50;
 }
 
-.sales-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: white;
-    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+.sale-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
-.sales-table th,
-.sales-table td {
-    padding: 12px;
-    text-align: left;
-    border-bottom: 1px solid #eee;
+.input-field {
+  padding: 10px;
+  border: 1px solid #bdc3c7;
+  border-radius: 5px;
+  width: 100%;
 }
 
-.pagination {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin: 2rem 0;
+.product-selection {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.pagination button {
-    padding: 8px 16px;
-    border: 1px solid #ddd;
-    background: white;
-    border-radius: 4px;
-    cursor: pointer;
+.product-selection select,
+.product-selection input {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #bdc3c7;
 }
 
-.pagination button:disabled {
-    background: #f8f9fa;
-    cursor: not-allowed;
+.quantity-input {
+  width: 70px;
+  text-align: center;
+}
+
+.add-product-btn,
+.remove-btn,
+.submit-btn {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-product-btn:hover,
+.remove-btn:hover,
+.submit-btn:hover {
+  background-color: #2980b9;
 }
 
 .total-amount {
-    text-align: right;
-    margin: 1.5rem 0;
-    font-size: 1.1rem;
+  font-size: 1.2rem;
+  text-align: right;
+  margin-top: 10px;
 }
 
-@media (max-width: 768px) {
-    .sales-container {
-        padding: 0 1rem;
-    }
-    
-    .sales-table {
-        display: block;
-        overflow-x: auto;
-    }
+.invoice-link {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.invoice-link a {
+  color: #27ae60;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.invoice-link a:hover {
+  text-decoration: underline;
 }
