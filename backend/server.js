@@ -13,27 +13,22 @@ const app = express();
 
 const allowedOrigins = [
   "https://akashinventorymanagementapp.netlify.app",
-  "http://localhost:5173", // Localhost for local testing
+  "http://localhost:5173", // For local development
 ];
 
-// ✅ Dynamic CORS origin handler
+// ✅ Apply CORS middleware at the very top
 app.use(cors({
-  origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
+  origin: allowedOrigins,
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
 }));
 
-app.use(express.json());
-
-// 🔑 Handle preflight requests
+// ✅ Ensure preflight requests are handled
 app.options('*', cors());
+
+// ✅ Parse incoming requests before routes
+app.use(express.json());
 
 // Database connection
 const connectDB = require('./utils/connectDB');
@@ -44,6 +39,12 @@ app.use('/api/auth', authRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/sales', saleRoutes);
 app.use('/api/purchases', purchaseRoutes);
+
+// ✅ Global error handler to prevent CORS bypass
+app.use((err, req, res, next) => {
+  console.error("Error:", err.message);
+  res.status(500).json({ error: err.message });
+});
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
