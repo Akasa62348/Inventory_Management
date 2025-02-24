@@ -10,7 +10,7 @@ const purchaseRoutes = require('./routes/purchaseRoutes');
 
 dotenv.config();
 const app = express();
-app.use(cors({ origin: "https://akashinventorymanagementapp.netlify.app" }));
+app.use(cors({ origin: "https://akashinventorymanagementapp.netlify.app", credentials: true, }));
 app.use(express.json());
 
 const connectDB = require('./utils/connectDB');
