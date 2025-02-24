@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_URL || "https://inventory-management-v976.onrender.com",
-  withCredentials: true,
+  
 });
 console.log('API Base URL:', import.meta.env.VITE_API_URL);  // Debug check
 
