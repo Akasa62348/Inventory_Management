@@ -1,28 +1,100 @@
+/* General Container */
 .sales-container {
-  max-width: 900px;
-  margin: auto;
+  max-width: 800px;
+  margin: 30px auto;
   padding: 20px;
-  background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fdfdfd;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
+/* Headings */
+.sales-container h2 {
   text-align: center;
-  color: #2c3e50;
+  margin-bottom: 20px;
+  color: #333;
 }
 
+/* Input Fields */
+.input-field,
+.search-input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.search-input {
+  margin-bottom: 20px;
+}
+
+/* Table Styles */
+.sales-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.sales-table th,
+.sales-table td {
+  padding: 12px;
+  text-align: center;
+  border: 1px solid #e0e0e0;
+}
+
+.sales-table th {
+  background-color: #007bff;
+  color: white;
+}
+
+.sales-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.no-data {
+  text-align: center;
+  color: #888;
+  font-style: italic;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.pagination button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.pagination button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+/* Total Amount */
+.total-amount {
+  text-align: right;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #2d6a4f;
+}
+
+/* Sale Form Styles */
 .sale-form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-}
-
-.input-field {
-  padding: 10px;
-  border: 1px solid #bdc3c7;
-  border-radius: 5px;
-  width: 100%;
+  gap: 12px;
 }
 
 .product-selection {
@@ -31,52 +103,79 @@ h2 {
   gap: 10px;
 }
 
-.product-selection select,
-.product-selection input {
+.product-selection select {
+  flex: 2;
   padding: 8px;
-  border-radius: 5px;
-  border: 1px solid #bdc3c7;
+  border-radius: 6px;
+  border: 1px solid #ccc;
 }
 
 .quantity-input {
   width: 70px;
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
   text-align: center;
 }
 
-.add-product-btn,
-.remove-btn,
-.submit-btn {
-  background-color: #3498db;
+.remove-btn {
+  background-color: #dc3545;
   color: white;
   border: none;
-  padding: 8px 12px;
-  border-radius: 5px;
+  padding: 6px 10px;
+  border-radius: 6px;
   cursor: pointer;
 }
 
-.add-product-btn:hover,
-.remove-btn:hover,
-.submit-btn:hover {
-  background-color: #2980b9;
+.remove-btn:hover {
+  background-color: #c82333;
 }
 
-.total-amount {
-  font-size: 1.2rem;
-  text-align: right;
-  margin-top: 10px;
+/* Buttons */
+.add-product-btn,
+.submit-btn {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.add-product-btn:hover,
+.submit-btn:hover {
+  background-color: #218838;
 }
 
 .invoice-link {
-  text-align: center;
   margin-top: 15px;
+  text-align: center;
 }
 
 .invoice-link a {
-  color: #27ae60;
-  font-weight: bold;
+  color: #007bff;
   text-decoration: none;
+  font-weight: bold;
 }
 
 .invoice-link a:hover {
   text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .product-selection {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .pagination {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .quantity-input {
+    width: 100%;
+  }
 }

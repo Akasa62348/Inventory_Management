@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "../services/api";
+import { signup } from "../services/auth";  // ✅ Import the signup function
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import "./SignupPage.css";
@@ -8,7 +8,7 @@ const SignupPage = () => {
   const [formData, setFormData] = useState({
     username: "",
     password: "",
-    role: "user", // Default role
+    role: "user",
   });
 
   const navigate = useNavigate();
@@ -20,11 +20,12 @@ const SignupPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("/auth/signup", formData);
+      await signup(formData);  // ✅ Use signup from auth.js
       toast.success("Signup successful! Please login.");
       navigate("/login");
-    } catch {
-      toast.error("Signup failed");
+    } catch (error) {
+      console.error("Signup error:", error.response?.data || error.message);  // Improved error logging
+      toast.error(`Signup failed: ${error.response?.data?.message || "Try again"}`);
     }
   };
 
